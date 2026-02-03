@@ -1,17 +1,17 @@
-# Use a lightweight Python base image
+# Use official lightweight Python image
 FROM python:3.9-slim
 
 # Set working directory inside container
 WORKDIR /app
 
-# Copy application code
+# Copy Flask app
 COPY app.py .
 
 # Install Flask
 RUN pip install flask
 
-# Expose the port Flask uses (OpenShift standard)
+# OpenShift-standard port
 EXPOSE 8080
 
-# Start the Flask application
+# Run the Flask app
 CMD ["python", "app.py"]
